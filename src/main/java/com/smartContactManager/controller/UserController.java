@@ -4,6 +4,7 @@ import com.smartContactManager.entity.User;
 import com.smartContactManager.helper.Message;
 import com.smartContactManager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,8 @@ import javax.validation.Valid;
 //@RequestMapping("/smart-contact")
 @Controller
 public class UserController {
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private UserService userService;
 
@@ -52,9 +55,9 @@ public class UserController {
     public String registerUser(
             @Valid
             @ModelAttribute("user") User user,
+            BindingResult bindingResult,
             @RequestParam(value = "checkbox", defaultValue = "false") Boolean checkbox,
             Model model,
-            BindingResult bindingResult,
             HttpSession httpSession){
 
         try {
@@ -69,9 +72,10 @@ public class UserController {
                 return "signup";
             }
 
-            user.setRole("NORMAL");
+            user.setRole("ROLE_USER");
             user.setEnabled(true);
             user.setImageUrl("default.png");
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
             /**
              * to save user:
@@ -97,5 +101,11 @@ public class UserController {
         }
 
         //return "signup";
+    }
+
+    @GetMapping("/login")
+    public String customLogin(Model model){
+        model.addAttribute("title","Login - Page");
+        return "login";
     }
 }

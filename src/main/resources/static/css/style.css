@@ -14,3 +14,21 @@ body{
     padding: 20px;
     background: aliceblue;
 }
+
+/*for login page*/
+
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 600px;
+    height: 420px;
+    border: 1px solid #9C9C9C;
+    background-color: palegoldenrod;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+
+/*end of login page*/

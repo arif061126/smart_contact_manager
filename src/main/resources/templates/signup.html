@@ -26,18 +26,18 @@
                     </div>
                     <h1 class="text-center">Register here!!</h1>
 
-                    <form th:action="@{/do_register}" method="post" th:object="${user}">
+                    <form novalidate th:action="@{/do_register}" method="post" th:object="${user}">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input
                                     type="text"
                                     th:value="${user.name}"
                                     name="name"
-                                    class="form-control is-invalid"
+                                    class="form-control"
                                     th:classappend="${#fields.hasErrors()?'is-invalid':''}"
                                     id="name"
                                     placeholder="Name"
-                                    >
+                                    />
                             <div class="invalid-feedback" th:each="e:${#fields.errors('name')}" th:text="${e}">
                             </div>
                         </div>
