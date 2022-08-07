@@ -1,0 +1,16 @@
+body{
+    background: #e2e2e2 !important;
+}
+
+.banner{
+    height: 93vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url("../img/contact.jpeg");
+    background-size: cover;
+    color: white;
+}
+
+.my-card{
+    padding: 20px;
+    background: aliceblue;
+}
