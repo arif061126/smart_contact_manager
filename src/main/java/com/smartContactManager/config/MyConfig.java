@@ -50,7 +50,7 @@ public class MyConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")//**for custom login page
                 .loginProcessingUrl("/doLogin") //the url to submit username and password
-                .defaultSuccessUrl("/user/index") //landing page after successful login
+                .defaultSuccessUrl("/user/dashboard") //landing page after successful login
                 .failureUrl("/login") //landing page after unsuccessful login
                 .and()
                 .csrf().disable();

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${title}">Base Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--start of navbar-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <a class="navbar-brand" th:href="@{/}">Smart Contact Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-uppercase">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/}" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link"><span th:text="${user.name}"></span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>-->
+<!--end of navbar-->
+
+<!--<div class="sidebar">
+    <a href="#" class="item">Home</a>
+    <a href="#" class="item">Contacts</a>
+    <a href="#" class="item">Add Contacts</a>
+    <a href="#" class="item">Profile</a>
+    <a href="#" class="item">Settings</a>
+    <a href="#" th:href="@{/logout}" class="item">Logout</a>
+    <div class="divider"></div>
+</div>-->
+
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><a th:href="@{/}">Smart Contact Manager</a></h3>
+            <strong>SCM</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <!--<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">-->
+                <a th:href="@{/user/dashboard}">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <!--<ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="#">Home 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+                </ul>-->
+            </li>
+            <li>
+                <a href="#" th:href="@{/user/view_contact}">
+                    <i class="fas fa-briefcase"></i>
+                    Contacts
+                </a>
+                <a href="#" th:href="@{/user/add_contact}">
+                    <i class="fas fa-copy"></i>
+                    Add Contacts
+                </a>
+                <!--<ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>-->
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-image"></i>
+                    Profiles
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question"></i>
+                    Settings
+                </a>
+            </li>
+            <li>
+                <a href="#" th:href="@{/logout}">
+                    <i class="fas fa-paper-plane"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Smart Contact Manager</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto text-uppercase">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" th:href="@{/}">Home</a><span class="sr-only">(current)</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span th:text="${user.name}"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/logout}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div th:replace="${content}"></div>
+
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+
+<!--<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+</footer>-->
+
+</html>
